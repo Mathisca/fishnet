@@ -111,7 +111,6 @@ jobs:
   freebsd-x86-64:
     runs-on: ubuntu-16.04
     steps:
-    - run: sudo apt-get update && sudo apt-get install -y binutils-x86-64-kfreebsd-gnu
     - uses: actions/checkout@v2
       with:
         submodules: true
@@ -126,7 +125,6 @@ jobs:
         command: build
         args: --release --target x86_64-unknown-freebsd
     - run: mv target/x86_64-unknown-freebsd/release/fishnet fishnet-x86_64-unknown-freebsd
-    - run: x86-64-kfreebsd-gnu-strip fishnet-x86_64-unknown-freebsd
     - uses: actions/upload-artifact@v2
       with:
         name: fishnet-x86_64-unknown-freebsd
